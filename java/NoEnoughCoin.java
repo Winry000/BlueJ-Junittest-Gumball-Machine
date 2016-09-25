@@ -8,7 +8,7 @@ public class NoEnoughCoin implements State
     }
  
     public void insertCoin(int coin) {
-        if(coin == 5){
+        if(coin == 5){  
             System.out.println("You inserted a nickel!");
         } else if(coin == 10){
            System.out.println("You inserted a dime!");
@@ -16,28 +16,30 @@ public class NoEnoughCoin implements State
            System.out.println("You inserted a quarter!");
         }
         
+        gumballMachine.setCoins(gumballMachine.getCoins()  + coin);
+        
         if(gumballMachine.getCoins() >= 50){
             System.out.println("Have enough coins!");
             gumballMachine.setState(gumballMachine.getHasEnoughCoin());
         }else {
-            System.out.println("There has no enough coins!");
+            System.out.println("There has " + gumballMachine.getCoins() +" coins, There has no enough coins!");
             gumballMachine.setState(gumballMachine.getNoEnoughCoin());
         }
-        gumballMachine.setState(gumballMachine.getHasEnoughCoin());
+   
     }
     
     public void ejectCoin(){
        if(gumballMachine.getCoins() == 0){
            System.out.println("You need to inserted coins!");
        }else{
-           System.out.println("There are"+gumballMachine.getCoins()+"coins left");
+           System.out.println("The remain change "+gumballMachine.getCoins()+" coins are released");
            gumballMachine.setCoins(0);
        }
        
     }
   
     public void turnCrank() {
-        System.out.println("You turned, but there's no quarter");
+        System.out.println("You turned, but there's no enough coin");
      }
  
     public void dispense() {
@@ -45,7 +47,7 @@ public class NoEnoughCoin implements State
     } 
  
     public String toString() {
-        return "waiting for quarter";
+         return "waiting for turn of crank";
     }
 
 }

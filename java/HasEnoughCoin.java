@@ -17,21 +17,24 @@ public class HasEnoughCoin implements State
            System.out.println("You inserted a quarter!");
         }
         
+        gumballMachine.setCoins(gumballMachine.getCoins()  + coin);
+        
         if(gumballMachine.getCoins() >= 50){
             System.out.println("Have enough coins!");
             gumballMachine.setState(gumballMachine.getHasEnoughCoin());
-        }else {
-            System.out.println("There has no enough coins!");
-            gumballMachine.setState(gumballMachine.getNoEnoughCoin());
         }
-        gumballMachine.setState(gumballMachine.getHasEnoughCoin());
+        /*else {
+            System.out.println("There has " + gumballMachine.getCoins() +" coins, There has no enough coins!");
+            gumballMachine.setState(gumballMachine.getNoEnoughCoin());
+        }*/
+        /*gumballMachine.setState(gumballMachine.getHasEnoughCoin());*/
     }
  
     public void ejectCoin() {
        if(gumballMachine.getCoins() == 0){
            System.out.println("You need to inserted coins!");
        }else{
-           System.out.println("There are"+gumballMachine.getCoins()+"coins left");
+           System.out.println("There are "+gumballMachine.getCoins()+"coins left");
            gumballMachine.setCoins(0);
        }
     }

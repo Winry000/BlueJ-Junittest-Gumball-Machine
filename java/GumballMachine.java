@@ -21,7 +21,9 @@ public class GumballMachine {
         this.count = numberGumballs;
         if (numberGumballs > 0) {
             state = noEnoughCoinState;
-        } 
+        } else {
+            state = soldOutState;
+        }
     }
  
     public void insertNickel() {
@@ -50,13 +52,11 @@ public class GumballMachine {
     }
  
     void releaseBall() {
-        System.out.println("A gumball comes rolling out the slot...");
-        if (count != 0) {
-            count = count - 1;
-            slot = slot + 1;
-            coin = coin - 50;
-        }
-        System.out.println("You have"+ getCoins()+"cents");
+        if(count != 0)
+            count = count -1;
+        coin = coin - 50;
+        slot = slot + 1;
+        System.out.println("A gumball is rolling out the slot...");
     }
  
     int getCount() {
@@ -101,18 +101,18 @@ public class GumballMachine {
             System.out.println("There is no gumball in slot");
             return false;
         }else if (slot == 1){
-            System.out.println("There has gumball in slot");
+            System.out.println("There one gumball in slot");
         }else {
-            System.out.println("There have more than one gumballs in slot");
+            System.out.println("There have " + slot + " gumballs in slot");
         }
         return true;
     }   
     
     public void takeGumballFromSlot() {
         if(slot > 0) {
-           System.out.println("Please pick up gumball/gumballs");
-        }
-        if(slot == 0) {
+           System.out.println("Please pick up " + slot + " gumball/gumballs");
+           slot = 0;
+        } else if(slot == 0) {
            System.out.println("There has no gumball to pick up");
         }
     }
