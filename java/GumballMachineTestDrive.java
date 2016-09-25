@@ -3,7 +3,7 @@
 public class GumballMachineTestDrive {
 
 	public static void main(String[] args) {
-		GumballMachine gumballMachine = new GumballMachine(0);
+		GumballMachine gumballMachine = new GumballMachine(5);
 
 		System.out.println(gumballMachine);
 
@@ -11,6 +11,7 @@ public class GumballMachineTestDrive {
 		gumballMachine.insertQuarter();
 		gumballMachine.insertQuarter();
 		gumballMachine.insertDime();
+		gumballMachine.turnCrank();
 		gumballMachine.insertQuarter();
 		gumballMachine.insertQuarter();
 		gumballMachine.insertQuarter();

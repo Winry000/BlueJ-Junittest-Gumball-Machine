@@ -34,8 +34,9 @@ public class HasEnoughCoin implements State
        if(gumballMachine.getCoins() == 0){
            System.out.println("You need to inserted coins!");
        }else{
-           System.out.println("There are "+gumballMachine.getCoins()+"coins left");
+           System.out.println("The remain change "+gumballMachine.getCoins()+" coins are released");
            gumballMachine.setCoins(0);
+           gumballMachine.setState(gumballMachine.getNoEnoughCoin());      
        }
     }
  

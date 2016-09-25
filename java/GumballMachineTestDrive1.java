@@ -1,4 +1,4 @@
-import static org.junit.Assert.*;
+/*import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -91,4 +91,4 @@ public class GumballMachineTestDrive1 {
         gm1.takeGumballFromSlot();
         assertEquals(false, gm1.isGumballInSlot());
     }
-}
+}*/
